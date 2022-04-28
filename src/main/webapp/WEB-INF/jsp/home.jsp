@@ -41,6 +41,7 @@
             </c:forEach>
         </tbody>
     </table>
+    <input type="button" value="Add Flight" onclick="window.location.href='addForm'; return false;" />
 </div>
 </body>
 </html>
