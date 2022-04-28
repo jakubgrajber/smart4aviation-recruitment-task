@@ -23,7 +23,6 @@ public class FlightDAOHibernateImpl implements FlightDAO{
     }
 
     @Override
-    @Transactional
     public List<Flight> getAll() {
 
         Session currentSession = entityManager.unwrap(Session.class);
