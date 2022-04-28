@@ -23,13 +23,19 @@
         </thead>
         <tbody>
             <c:forEach var="tempFlight" items="${flights}">
+
+                <!-- Link with flight id to detail page-->
+                <c:url var="detailsLink" value="/details">
+                    <c:param name="flightId" value="${tempFlight.flightId}"/>
+                </c:url>
+
                 <tr>
                     <td>${tempFlight.flightNumber}</td>
                     <td>${tempFlight.departureAirportIATACode}</td>
                     <td>${tempFlight.arrivalAirportIATACode}</td>
                     <td><fmt:formatDate type = "both" value = "${tempFlight.departureDate}" /></td>
                     <td>
-                        <a>Details</a> | <a>Edit</a>
+                        <a href="${detailsLink}">Details</a> | <a>Edit</a>
                     </td>
                 </tr>
             </c:forEach>
