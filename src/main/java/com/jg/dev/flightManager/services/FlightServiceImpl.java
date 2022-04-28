@@ -20,4 +20,10 @@ public class FlightServiceImpl implements FlightService{
     public List<Flight> getFlights() {
         return flightDAO.getAll();
     }
+
+    @Override
+    @Transactional
+    public Flight getFlight(int flightId) {
+        return flightDAO.get(flightId);
+    }
 }

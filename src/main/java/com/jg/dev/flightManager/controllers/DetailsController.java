@@ -19,6 +19,10 @@ public class DetailsController {
     @GetMapping("/details")
     public String showDetails(@RequestParam("flightId") int theId, Model model){
 
+        Flight flight = flightService.getFlight(theId);
+
+        model.addAttribute("flight", flight);
+
         return "details";
     }
 }

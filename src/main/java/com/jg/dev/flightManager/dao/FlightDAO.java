@@ -7,4 +7,5 @@ import java.util.List;
 public interface FlightDAO {
 
     public List<Flight> getAll();
+    public Flight get(int flightId);
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface FlightService {
     public List<Flight> getFlights();
+    public Flight getFlight(int flightId);
 }
