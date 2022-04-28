@@ -28,8 +28,23 @@ public class Flight {
     private String arrivalAirportIATACode;
 
     @Column(name = "departure_date")
-    private Date DepartureDate;
+    private Date departureDate;
 
     @OneToMany(mappedBy = "flightId")
     private List<Cargo> cargoEntity;
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightId=" + flightId +
+                ", flightNumber=" + flightNumber +
+                ", departureAirportIATACode='" + departureAirportIATACode + '\'' +
+                ", arrivalAirportIATACode='" + arrivalAirportIATACode + '\'' +
+                ", DepartureDate=" + departureDate +
+                '}';
+    }
+
+    public Date getDepartureDate() {
+        return departureDate;
+    }
 }

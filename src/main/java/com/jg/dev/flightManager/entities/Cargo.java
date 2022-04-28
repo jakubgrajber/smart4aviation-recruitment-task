@@ -30,4 +30,15 @@ public class Cargo {
     @JoinColumn(name = "flight_id")
     @JsonIgnore
     private Flight flightId;
+
+    @Override
+    public String toString() {
+        return "Cargo{" +
+                "cargoId=" + cargoId +
+                ", cargoType='" + cargoType + '\'' +
+                ", weight=" + weight +
+                ", weightUnit='" + weightUnit + '\'' +
+                ", pieces=" + pieces +
+                '}';
+    }
 }
