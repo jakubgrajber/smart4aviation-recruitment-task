@@ -1,5 +1,6 @@
 package com.jg.dev.flightManager.entities;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td><label>Departure Date: </label></td>
-                    <td><form:input path="departureDate" /></td>
+                    <td><form:input path="departureDate" type="date" /></td>
                 </tr>
                 <tr>
                     <td><label></label></td>

@@ -8,4 +8,5 @@ public interface FlightDAO {
 
     public List<Flight> getAll();
     public Flight get(int flightId);
+    public void save(Flight flight);
 }
