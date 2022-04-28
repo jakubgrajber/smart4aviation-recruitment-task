@@ -29,6 +29,7 @@ public class Flight {
     private String arrivalAirportIATACode;
 
     @Column(name = "departure_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date departureDate;
 
     @OneToMany(mappedBy = "flightId")
