@@ -27,7 +27,7 @@ public class FlightDAOHibernateImpl implements FlightDAO{
     public List<Flight> getAll() {
 
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<Flight> theQuery = currentSession.createQuery("from FlightEntity", Flight.class);
+        Query<Flight> theQuery = currentSession.createQuery("from Flight", Flight.class);
         List<Flight> result = theQuery.getResultList();
 
         return result;

@@ -12,7 +12,7 @@ public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cargo_id")
-    private int totalCargoId;
+    private int cargoId;
 
     @Column(name = "cargo_type")
     private String cargoType;
