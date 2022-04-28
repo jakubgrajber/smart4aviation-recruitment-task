@@ -1,0 +1,58 @@
+INSERT INTO FLIGHT (flight_id, flight_number, departure_airport_IATA_code, arrival_airport_IATA_code, departure_date) VALUES
+                                                             (0, 9417, 'YYT', 'PPX', '2020-06-05T04:44:51-02:00'),
+                                                            (1, 2198, 'SEA', 'GDN', '2016-02-10T08:25:24-01:00'),
+                                                            (2, 8515, 'SEA', 'GDN', '2017-08-21T12:19:16-02:00'),
+                                                            (3, 6107, 'YYZ', 'MIT', '2018-06-27T03:42:44-02:00'),
+                                                            (4, 8535, 'YYZ', 'PPX', '2017-03-20T12:17:21-01:00');
+
+INSERT INTO CARGO (cargo_id, cargo_type, weight, weight_unit, pieces, flight_id) VALUES
+    (0, 'baggage', 685, 'lb', 487, 0),
+    (1, 'baggage', 54, 'lb', 788, 0),
+    (2, 'baggage', 199, 'kg', 951, 0),
+    (3, 'baggage', 875, 'kg', 741, 0),
+    (4, 'baggage', 754, 'kg', 827, 0),
+    (5, 'baggage', 101, 'lb', 232, 0),
+    (6, 'baggage', 783, 'kg', 988, 0),
+    (7, 'baggage', 779, 'lb', 98, 0),
+    (8, 'cargo', 185, 'kg', 472, 0),
+    (9, 'cargo', 452, 'kg', 213, 0),
+    (10, 'cargo', 954, 'kg', 126, 0),
+
+    (11, 'baggage', 685, 'kg', 922, 1),
+    (12, 'baggage', 684, 'lb', 986, 1),
+    (13, 'baggage', 473, 'kg', 80, 1),
+    (14, 'baggage', 162, 'lb', 296, 1),
+    (15, 'baggage', 703, 'kg', 310, 1),
+    (16, 'baggage', 693, 'lb', 614, 1),
+    (17, 'cargo', 655, 'lb', 296, 1),
+    (18, 'cargo', 129, 'lb', 788, 1),
+    (19, 'cargo', 868, 'lb', 239, 1),
+
+    (20, 'baggage', 371, 'lb', 163, 2),
+    (21, 'baggage', 63, 'lb', 29, 2),
+    (22, 'baggage', 512, 'kg', 892, 2),
+    (23, 'baggage', 856, 'lb', 426, 2),
+    (24, 'cargo', 508, 'lb', 688, 2),
+    (25, 'cargo', 832, 'lb', 2, 2),
+    (26, 'cargo', 232, 'kg', 974, 2),
+    (27, 'cargo', 527, 'kg', 688, 2),
+
+    (28, 'baggage', 438, 'kg', 121, 3),
+    (29, 'baggage', 530, 'lb', 506, 3),
+    (30, 'baggage', 134, 'kg', 840, 3),
+    (31, 'cargo', 487, 'kg', 831, 3),
+    (32, 'cargo', 475, 'lb', 422, 3),
+    (34, 'cargo', 122, 'kg', 118, 3),
+    (35, 'cargo', 297, 'lb', 139, 3),
+    (36, 'cargo', 279, 'lb', 94, 3),
+
+    (37, 'baggage', 305, 'kg', 776, 4),
+    (38, 'baggage', 186, 'lb', 19, 4),
+    (39, 'baggage', 534, 'lb', 65, 4),
+    (40, 'baggage', 267, 'lb', 79, 4),
+    (41, 'baggage', 391, 'lb', 592, 4),
+    (42, 'cargo', 939, 'kg', 290, 4),
+    (43, 'cargo', 618, 'lb', 528, 4),
+    (44, 'cargo', 433, 'lb', 735, 4),
+    (45, 'cargo', 973, 'kg', 391, 4);
+
