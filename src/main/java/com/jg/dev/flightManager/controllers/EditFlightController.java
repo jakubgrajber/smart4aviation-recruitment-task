@@ -5,8 +5,7 @@ import com.jg.dev.flightManager.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EditFlightController {
@@ -21,7 +20,14 @@ public class EditFlightController {
 
         model.addAttribute("flight", flight);
 
-        return "editFlight";
+        return "edit-flight";
+    }
+
+    @PostMapping("/updateFlight")
+    public String updateFlight(@ModelAttribute("flight") Flight flight){
+        flightService.updateFlight(flight);
+
+        return "redirect:/";
     }
 
 

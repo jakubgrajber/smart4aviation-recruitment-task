@@ -25,14 +25,4 @@ public class DetailsController {
 
         return "details";
     }
-
-    @GetMapping("/editFlight")
-    public String showEditPage(@RequestParam("flightId") int theId, Model model){
-
-        Flight flight = flightService.getFlight(theId);
-
-        model.addAttribute("flight", flight);
-
-        return "editFlight";
-    }
 }

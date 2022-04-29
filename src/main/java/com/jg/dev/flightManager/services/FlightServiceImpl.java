@@ -32,4 +32,10 @@ public class FlightServiceImpl implements FlightService{
     public void saveFlight(Flight flight) {
         flightDAO.save(flight);
     }
+
+    @Override
+    @Transactional
+    public void updateFlight(Flight flight) {
+        flightDAO.update(flight);
+    }
 }

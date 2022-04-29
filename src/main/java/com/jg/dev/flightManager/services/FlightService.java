@@ -8,6 +8,6 @@ import java.util.List;
 public interface FlightService {
     public List<Flight> getFlights();
     public Flight getFlight(int flightId);
-
-    void saveFlight(Flight flight);
+    public void updateFlight(Flight flight);
+    public void saveFlight(Flight flight);
 }
