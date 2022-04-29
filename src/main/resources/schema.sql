@@ -24,6 +24,6 @@ CREATE TABLE CARGO (
                         flight_id INT,
                         PRIMARY KEY (cargo_id),
                         CONSTRAINT FK_FLIGHT FOREIGN KEY (flight_id) references FLIGHT(flight_id)
-                        ON DELETE NO ACTION ON UPDATE NO ACTION
+
 );
 

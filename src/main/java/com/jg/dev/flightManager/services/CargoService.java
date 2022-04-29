@@ -7,4 +7,5 @@ public interface CargoService {
     public void updateCargo(Cargo cargo);
     public void saveCargo(Cargo cargo);
     public void deleteCargo(int cargoId);
+    public Cargo getCargo(int cargoId);
 }

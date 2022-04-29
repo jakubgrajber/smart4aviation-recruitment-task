@@ -57,12 +57,26 @@
         </thead>
         <tbody>
         <c:forEach var="tempCargo" items="${flight.cargoEntity}">
+
+            <!-- Link with flight id to edit page-->
+            <c:url var="editLink" value="/editCargo">
+                <c:param name="cargoId" value="${tempCargo.cargoId}"/>
+            </c:url>
+
+            <!-- Link with flight id to delete the flight-->
+            <c:url var="deleteLink" value="/deleteCargo">
+                <c:param name="cargoId" value="${tempCargo.cargoId}"/>
+            </c:url>
+
             <tr>
                 <td>${tempCargo.cargoId}</td>
                 <td>${tempCargo.cargoType}</td>
                 <td>${tempCargo.weight}</td>
                 <td>${tempCargo.weightUnit}</td>
                 <td>${tempCargo.pieces}</td>
+                <td>
+                    <a href="${editLink}">Edit</a> | <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

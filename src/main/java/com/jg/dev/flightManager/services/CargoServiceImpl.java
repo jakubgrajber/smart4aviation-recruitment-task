@@ -29,4 +29,10 @@ public class CargoServiceImpl implements CargoService{
     public void deleteCargo(int cargoId) {
         cargoDAO.delete(cargoId);
     }
+
+    @Override
+    @Transactional
+    public Cargo getCargo(int cargoId) {
+        return cargoDAO.get(cargoId);
+    }
 }

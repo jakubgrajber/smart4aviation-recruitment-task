@@ -1,6 +1,7 @@
 package com.jg.dev.flightManager.dao;
 
 import com.jg.dev.flightManager.entities.Cargo;
+import com.jg.dev.flightManager.entities.Flight;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,7 +32,12 @@ public class CargoDAOHibernateImpl implements CargoDAO{
     public void delete(int cargoId) {
         Session currentSession = entityManager.unwrap(Session.class);
 
-        Cargo cargo = currentSession.get(Cargo.class, cargoId);
-        currentSession.delete(cargo);
+    }
+
+    @Override
+    public Cargo get(int cargoId) {
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        return currentSession.get(Cargo.class, cargoId);
     }
 }

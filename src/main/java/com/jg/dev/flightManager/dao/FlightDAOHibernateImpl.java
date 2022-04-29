@@ -45,7 +45,7 @@ public class FlightDAOHibernateImpl implements FlightDAO{
 
         Session currentSession = entityManager.unwrap(Session.class);
 
-        currentSession.saveOrUpdate(flight);
+        currentSession.save(flight);
     }
 
     @Override

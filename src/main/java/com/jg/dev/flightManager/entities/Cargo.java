@@ -1,6 +1,7 @@
 package com.jg.dev.flightManager.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
@@ -26,10 +27,14 @@ public class Cargo {
     @Column(name = "pieces")
     private int pieces;
 
-    @ManyToOne
-    @JoinColumn(name = "flightId")
-    @JsonIgnore
-    private Flight flightId;
+    //@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    //@JoinColumn(name = "flight_id")
+    //@JsonIgnore
+    //private Flight flight;
+
+    @JoinColumn(name = "flight_id")
+    private int flightId;
+    
 
     @Override
     public String toString() {

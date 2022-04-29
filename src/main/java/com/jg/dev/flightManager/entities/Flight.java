@@ -1,7 +1,5 @@
 package com.jg.dev.flightManager.entities;
 import lombok.Data;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -34,7 +32,9 @@ public class Flight {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date departureDate;
 
-    @OneToMany(mappedBy = "flightId",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "flightId",fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE}, orphanRemoval = true)
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "flight_id")
     private List<Cargo> cargoEntity;
 
     @Override
