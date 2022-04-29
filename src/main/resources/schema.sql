@@ -2,11 +2,12 @@ DROP TABLE IF EXISTS FLIGHT;
 
 
 CREATE TABLE FLIGHT (
-                               flight_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-                               flight_number INT NOT NULL,
-                               departure_airport_IATA_code VARCHAR(250) NOT NULL,
-                               arrival_airport_IATA_code VARCHAR(250) DEFAULT NULL,
-                               departure_date smalldatetime NOT NULL
+                               flight_id INT AUTO_INCREMENT,
+                               flight_number INT,
+                               departure_airport_IATA_code VARCHAR(250),
+                               arrival_airport_IATA_code VARCHAR(250),
+                               departure_date smalldatetime,
+                               PRIMARY KEY (flight_id)
                     );
 
 
@@ -15,12 +16,14 @@ CREATE TABLE FLIGHT (
 DROP TABLE IF EXISTS CARGO;
 
 CREATE TABLE CARGO (
-                        cargo_id INT AUTO_INCREMENT PRIMARY KEY,
-                        cargo_type VARCHAR(250) NOT NULL,
-                        weight INT NOT NULL,
-                        weight_unit VARCHAR(250) NOT NULL,
-                        pieces INT NOT NULL,
+                        cargo_id INT AUTO_INCREMENT,
+                        cargo_type VARCHAR(250),
+                        weight INT,
+                        weight_unit VARCHAR(250),
+                        pieces INT,
                         flight_id INT,
-                        FOREIGN KEY (flight_id) references FLIGHT(flight_id)
+                        PRIMARY KEY (cargo_id),
+                        CONSTRAINT FK_FLIGHT FOREIGN KEY (flight_id) references FLIGHT(flight_id)
+                        ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 

@@ -27,7 +27,7 @@ public class Cargo {
     private int pieces;
 
     @ManyToOne
-    @JoinColumn(name = "flight_id")
+    @JoinColumn(name = "flightId")
     @JsonIgnore
     private Flight flightId;
 

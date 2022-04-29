@@ -54,4 +54,17 @@ public class FlightDAOHibernateImpl implements FlightDAO{
 
         currentSession.update(flight);
     }
+
+    @Override
+    public void delete(int flightId) {
+        Session currentSession = entityManager.unwrap(Session.class);
+
+//        Query theQuery = currentSession.createQuery("delete from Flight where flightId=:flightId");
+//
+//        theQuery.setParameter("flightId", flightId);
+        Flight flight = currentSession.get(Flight.class, flightId);
+        currentSession.delete(flight);
+
+        //theQuery.executeUpdate();
+    }
 }

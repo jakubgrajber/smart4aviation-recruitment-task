@@ -10,4 +10,5 @@ public interface FlightDAO {
     public Flight get(int flightId);
     public void save(Flight flight);
     public void update(Flight flight);
+    public void delete(int flightId);
 }

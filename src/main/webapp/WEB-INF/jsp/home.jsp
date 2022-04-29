@@ -34,13 +34,19 @@
                     <c:param name="flightId" value="${tempFlight.flightId}"/>
                 </c:url>
 
+                <!-- Link with flight id to delete the flight-->
+                <c:url var="deleteLink" value="/deleteFlight">
+                    <c:param name="flightId" value="${tempFlight.flightId}"/>
+                </c:url>
+
                 <tr>
                     <td>${tempFlight.flightNumber}</td>
                     <td>${tempFlight.departureAirportIATACode}</td>
                     <td>${tempFlight.arrivalAirportIATACode}</td>
                     <td><fmt:formatDate type = "both" value = "${tempFlight.departureDate}" /></td>
                     <td>
-                        <a href="${detailsLink}">Details</a> | <a href="${editLink}">Edit</a>
+                        <a href="${detailsLink}">Details</a> | <a href="${editLink}">Edit</a> |
+                        <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

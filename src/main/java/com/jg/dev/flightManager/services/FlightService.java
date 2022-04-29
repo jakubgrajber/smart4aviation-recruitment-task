@@ -10,4 +10,5 @@ public interface FlightService {
     public Flight getFlight(int flightId);
     public void updateFlight(Flight flight);
     public void saveFlight(Flight flight);
+    public void deleteFlight(int flightId);
 }
