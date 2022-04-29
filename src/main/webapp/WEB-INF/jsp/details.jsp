@@ -12,6 +12,17 @@
 <a href="${pageContext.request.contextPath}/h2-console">DB console</a>
 <hr>
 
+<!-- Link with flight id to edit page-->
+<c:url var="editLink" value="/editFlight">
+    <c:param name="flightId" value="${flight.flightId}"/>
+</c:url>
+
+<!-- Link with flight id to delete the flight-->
+<c:url var="deleteLink" value="/deleteFlight">
+    <c:param name="flightId" value="${flight.flightId}"/>
+</c:url>
+
+
 <div>
     <table border="1">
         <thead>
@@ -28,7 +39,7 @@
                     <td>${flight.arrivalAirportIATACode}</td>
                     <td><fmt:formatDate type = "both" value = "${flight.departureDate}" /></td>
                     <td>
-                        <a>Edit</a>
+                        <a href="${editLink}">Edit</a> | <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
                     </td>
                 </tr>
         </tbody>
@@ -57,5 +68,6 @@
         </tbody>
     </table>
 </div>
+<a href="${pageContext.request.contextPath}/">Back</a>
 </body>
 </html>
