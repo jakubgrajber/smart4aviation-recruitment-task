@@ -30,7 +30,7 @@
                 <tr>
                     <td><label>Departure Date: </label></td>
 
-                    <td><form:input path="departureDate" placeholder="yyyy-mm-dd hh:mm:ss" /></td>
+                    <td><form:input path="departureDate" type="datetime-local" step="1" placeholder="yyyy-mm-dd hh:mm:ss" /></td>
                 </tr>
                 <tr>
                     <td><label></label></td>
