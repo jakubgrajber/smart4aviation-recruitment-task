@@ -5,10 +5,13 @@ import com.jg.dev.flightManager.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 public class AddFormController {
@@ -27,10 +30,15 @@ public class AddFormController {
     }
 
     @PostMapping("saveFlight")
-    public String saveFlight(@ModelAttribute("flight") Flight flight){
+    public String saveFlight(@Valid @ModelAttribute("flight") Flight flight, BindingResult bindingResult){
 
-        flightService.saveFlight(flight);
+        if (bindingResult.hasErrors()){
+            return "flight-form";
+        } else {
+            flightService.saveFlight(flight);
 
-        return "redirect:/addCargo?flightId=" + flight.getFlightId();
+            return "redirect:/addCargo?flightId=" + flight.getFlightId();
+        }
+
     }
 }

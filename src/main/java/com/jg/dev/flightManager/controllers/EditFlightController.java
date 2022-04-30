@@ -5,7 +5,10 @@ import com.jg.dev.flightManager.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class EditFlightController {
@@ -24,10 +27,15 @@ public class EditFlightController {
     }
 
     @PostMapping("/updateFlight")
-    public String updateFlight(@ModelAttribute("flight") Flight flight){
-        flightService.updateFlight(flight);
+    public String updateFlight(@Valid @ModelAttribute("flight") Flight flight, BindingResult bindingResult){
 
-        return "redirect:/";
+        if (bindingResult.hasFieldErrors()){
+            return "edit-flight";
+        } else {
+            flightService.updateFlight(flight);
+
+            return "redirect:/";
+        }
     }
 
 

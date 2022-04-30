@@ -17,20 +17,32 @@
             <tbody>
                 <tr>
                     <td><label>Flight Number:</label></td>
-                    <td><form:input path="flightNumber" /></td>
+                    <td>
+                        <form:input path="flightNumber" />
+                        <form:errors path="flightNumber"/>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Departure Airport IATA Code:</label></td>
-                    <td><form:input path="departureAirportIATACode" /></td>
+                    <td>
+                        <form:input path="departureAirportIATACode" />
+                        <form:errors path="departureAirportIATACode"/>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Arrival Airport IATA Code:</label></td>
-                    <td><form:input path="arrivalAirportIATACode" /></td>
+                    <td>
+                        <form:input path="arrivalAirportIATACode" />
+                        <form:errors path="arrivalAirportIATACode"/>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Departure Date: </label></td>
 
-                    <td><form:input path="departureDate" type="datetime-local" step="1" /></td>
+                    <td>
+                        <form:input path="departureDate" type="datetime-local" step="1" />
+                        <form:errors path="departureDate"/>
+                    </td>
                 </tr>
                 <tr>
                     <td><label></label></td>
