@@ -69,6 +69,11 @@
                 <c:param name="flightId" value="${tempCargo.flightId}"/>
             </c:url>
 
+            <!-- Link with flight id to add cargo-->
+            <c:url var="addLink" value="/addCargo">
+                <c:param name="flightId" value="${tempCargo.flightId}"/>
+            </c:url>
+
             <tr>
                 <td>${tempCargo.cargoId}</td>
                 <td>${tempCargo.cargoType}</td>
@@ -83,6 +88,7 @@
         </tbody>
     </table>
 </div>
+<input type="button" value="Add Cargo" onclick="window.location.href='${addLink}'; return false;" />
 <a href="${pageContext.request.contextPath}/">Back</a>
 </body>
 </html>
