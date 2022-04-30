@@ -22,6 +22,11 @@
     <c:param name="flightId" value="${flight.flightId}"/>
 </c:url>
 
+<!-- Link with flight id to add cargo-->
+<c:url var="addLink" value="/addCargo">
+    <c:param name="flightId" value="${flight.flightId}"/>
+</c:url>
+
 
 <div>
     <table border="1">
@@ -66,11 +71,6 @@
             <!-- Link with flight id to delete the flight-->
             <c:url var="deleteLink" value="/deleteCargo">
                 <c:param name="cargoId" value="${tempCargo.cargoId}"/>
-                <c:param name="flightId" value="${tempCargo.flightId}"/>
-            </c:url>
-
-            <!-- Link with flight id to add cargo-->
-            <c:url var="addLink" value="/addCargo">
                 <c:param name="flightId" value="${tempCargo.flightId}"/>
             </c:url>
 

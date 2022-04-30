@@ -31,6 +31,6 @@ public class AddFormController {
 
         flightService.saveFlight(flight);
 
-        return "redirect:/";
+        return "redirect:/addCargo?flightId=" + flight.getFlightId();
     }
 }
