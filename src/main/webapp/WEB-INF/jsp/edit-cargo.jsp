@@ -28,11 +28,15 @@
                     <label for="cargo">Cargo</label>
                     <form:radiobutton path="cargoType" value="baggage" id="baggage"/>
                     <label for="baggage">Baggage</label>
+                    <form:errors path="cargoType"/>
                 </td>
             <tr>
             <tr>
                 <td><label>Weight</label></td>
-                <td><form:input path="weight" /></td>
+                <td>
+                    <form:input path="weight" />
+                    <form:errors path="weight"/>
+                </td>
             <tr>
             <tr>
                 <td><label>Weight Unit</label></td>
@@ -41,11 +45,15 @@
                         <label for="kg">kg</label>
                         <form:radiobutton path="weightUnit" value="lb" id="lb"/>
                         <label for="lb">lb</label>
+                                <form:errors path="weightUnit"/>
                 <td>
             <tr>
             <tr>
                 <td><label>Pieces</label></td>
-                <td><form:input path="pieces" /></td>
+                <td>
+                    <form:input path="pieces" />
+                    <form:errors path="pieces"/>
+                </td>
             <tr>
             <tr>
                 <td><label></label></td>
