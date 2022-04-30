@@ -31,7 +31,7 @@ public class EditCargoController {
 
         cargoService.updateCargo(cargo);
 
-        return "redirect:/";
+        return "redirect:/details?flightId=" + cargo.getFlightId();
     }
 
 }

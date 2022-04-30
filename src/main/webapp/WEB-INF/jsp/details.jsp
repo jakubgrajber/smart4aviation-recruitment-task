@@ -66,6 +66,7 @@
             <!-- Link with flight id to delete the flight-->
             <c:url var="deleteLink" value="/deleteCargo">
                 <c:param name="cargoId" value="${tempCargo.cargoId}"/>
+                <c:param name="flightId" value="${tempCargo.flightId}"/>
             </c:url>
 
             <tr>

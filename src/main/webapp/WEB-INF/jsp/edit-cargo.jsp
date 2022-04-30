@@ -18,6 +18,7 @@
 <div>
     <form:form action="updateCargo" modelAttribute="cargo" method="post">
         <form:hidden path="cargoId"/>
+        <form:hidden path="flightId"/>
         <table >
             <tbody>
             <tr>

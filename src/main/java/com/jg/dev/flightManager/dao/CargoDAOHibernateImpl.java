@@ -30,8 +30,12 @@ public class CargoDAOHibernateImpl implements CargoDAO{
 
     @Override
     public void delete(int cargoId) {
+
         Session currentSession = entityManager.unwrap(Session.class);
 
+        Cargo cargo = currentSession.get(Cargo.class, cargoId);
+
+        currentSession.delete(cargo);
     }
 
     @Override
