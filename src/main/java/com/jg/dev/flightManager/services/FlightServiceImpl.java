@@ -49,7 +49,6 @@ public class FlightServiceImpl implements FlightService{
     @Override
     @Transactional
     public Flight getByFlightNumberAndDate(int flightNumber, Date departureDate) {
-        System.out.println("<<<<Service>>>>> " + departureDate);
         return flightDAO.get(flightNumber, departureDate);
     }
 }

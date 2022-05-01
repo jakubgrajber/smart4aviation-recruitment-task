@@ -32,15 +32,16 @@ public class CheckWeightController {
             return "redirect:/";
         }
 
+
+
         double cargoWeight = cargoService.getCargoWeight(theFlight.getFlightId());
         double baggageWeight = cargoService.getBaggageWeight(theFlight.getFlightId());
         double totalWeight = cargoWeight + baggageWeight;
 
-        System.out.println(theFlight.getFlightId());
-        System.out.println(cargoWeight);
-        System.out.println(baggageWeight);
-        System.out.println(totalWeight);
-
+        model.addAttribute("flight", theFlight).
+                addAttribute("cargoWeight", cargoWeight).
+                addAttribute("baggageWeight", baggageWeight).
+                addAttribute("totalWeight", totalWeight);
 
         return "weight-results";
     }
