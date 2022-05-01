@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -43,5 +44,12 @@ public class FlightServiceImpl implements FlightService{
     @Transactional
     public void deleteFlight(int flightId) {
         flightDAO.delete(flightId);
+    }
+
+    @Override
+    @Transactional
+    public Flight getByFlightNumberAndDate(int flightNumber, Date departureDate) {
+        System.out.println("<<<<Service>>>>> " + departureDate);
+        return flightDAO.get(flightNumber, departureDate);
     }
 }

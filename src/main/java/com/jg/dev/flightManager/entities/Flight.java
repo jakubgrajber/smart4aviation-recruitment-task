@@ -41,6 +41,9 @@ public class Flight {
     @NotNull(message = "Please enter the date.")
     private Date departureDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
+
     @OneToMany(mappedBy = "flightId",fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE}, orphanRemoval = true)
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JoinColumn(name = "flight_id")
@@ -54,6 +57,7 @@ public class Flight {
                 ", departureAirportIATACode='" + departureAirportIATACode + '\'' +
                 ", arrivalAirportIATACode='" + arrivalAirportIATACode + '\'' +
                 ", DepartureDate=" + departureDate +
+                ", Date=" + date +
                 '}';
     }
 

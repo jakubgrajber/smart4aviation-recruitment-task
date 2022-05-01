@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!doctype html>
 <html>
@@ -54,5 +55,36 @@
     </table>
     <input type="button" value="Add Flight" onclick="window.location.href='addForm'; return false;" />
 </div>
+<hr>
+<h3>Check weight of the flight</h3>
+<form:form action="checkWeight" modelAttribute="flight" method="get">
+    <form:hidden path="flightId"/>
+    <table>
+        <tbody>
+        <tr>
+            <td><label>Flight Number</label></td>
+            <td>
+                <form:input path="flightNumber"/>
+                <form:errors path="flightNumber"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Date</label></td>
+            <td>
+<%--                <form:input path="departureDate" type="datetime-local" step="1" />--%>
+<%--                <form:errors path="departureDate"/>--%>
+                <form:input path="date" type="date" required = "required"/>
+                <form:errors path="date"/>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td><label></label></td>
+            <td><input type="submit" value="Check"></td>
+        </tr>
+        </tbody>
+    </table>
+</form:form>
 </body>
 </html>

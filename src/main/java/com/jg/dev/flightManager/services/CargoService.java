@@ -8,4 +8,6 @@ public interface CargoService {
     public void saveCargo(Cargo cargo);
     public void deleteCargo(int cargoId);
     public Cargo getCargo(int cargoId);
+    public double getCargoWeight(int flightId);
+    public double getBaggageWeight(int flightId);
 }

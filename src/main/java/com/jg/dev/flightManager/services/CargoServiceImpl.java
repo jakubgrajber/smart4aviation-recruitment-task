@@ -35,4 +35,16 @@ public class CargoServiceImpl implements CargoService{
     public Cargo getCargo(int cargoId) {
         return cargoDAO.get(cargoId);
     }
+
+    @Override
+    @Transactional
+    public double getCargoWeight(int flightId) {
+        return cargoDAO.getCargoWeight(flightId);
+    }
+
+    @Override
+    @Transactional
+    public double getBaggageWeight(int flightId) {
+        return cargoDAO.getBaggageWeight(flightId);
+    }
 }

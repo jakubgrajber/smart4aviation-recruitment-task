@@ -8,4 +8,7 @@ public interface CargoDAO {
     public void update(Cargo cargo);
     public void delete(int cargoId);
     public Cargo get(int cargoId);
+    public double getCargoWeight(int flightId);
+
+    public double getBaggageWeight(int flightId);
 }
