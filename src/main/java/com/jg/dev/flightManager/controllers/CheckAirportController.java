@@ -35,15 +35,14 @@ public class CheckAirportController {
         long baggageArriving = cargoService.getBaggageArriving(arrivals);
         long baggageDeparting = cargoService.getBaggageDeparting(departures);
 
-        System.out.println(baggageArriving);
-        System.out.println(baggageDeparting);
-
         model.addAttribute("departures", departures.size())
-                .addAttribute("arrivals", arrivals.size());
+                .addAttribute("arrivals", arrivals.size())
+                .addAttribute("baggageArriving", baggageArriving)
+                .addAttribute("baggageDeparting", baggageDeparting)
+                .addAttribute("iata", iata)
+                .addAttribute("date", date);
 
-
-
-        return "redirect:/";
+        return "airport-info";
 
     }
 }

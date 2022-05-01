@@ -27,10 +27,6 @@ public class HomeController {
         List<Flight> flights = flightService.getFlights();
 
         Flight flight = new Flight();
-        flight.setFlightId(0);
-        flight.setFlightNumber(0);
-        flight.setArrivalAirportIATACode("XXX");
-        flight.setArrivalAirportIATACode("XXX");
 
         model.addAttribute("flights", flights);
         model.addAttribute("flight", flight);
