@@ -51,4 +51,15 @@ public class FlightServiceImpl implements FlightService{
     public Flight getByFlightNumberAndDate(int flightNumber, Date departureDate) {
         return flightDAO.get(flightNumber, departureDate);
     }
+
+    @Override
+    @Transactional
+    public List<Integer> getArrivals(String iata, Date date) {
+        return flightDAO.getArrivals(iata, date);
+    }
+
+    @Override
+    public List<Integer> getDepartures(String iata, Date date) {
+        return flightDAO.getDepartures(iata, date);
+    }
 }

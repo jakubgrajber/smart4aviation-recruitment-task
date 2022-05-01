@@ -21,7 +21,7 @@ public class CheckWeightController {
     @Autowired
     CargoService cargoService;
 
-    @GetMapping("checkWeight")
+    @GetMapping("/checkWeight")
     public String showResultsPage(@ModelAttribute("flight")Flight flight, Model model){
 
         flight.setDepartureDate(flight.getDate());

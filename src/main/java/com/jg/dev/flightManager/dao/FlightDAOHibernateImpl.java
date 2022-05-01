@@ -100,4 +100,48 @@ public class FlightDAOHibernateImpl implements FlightDAO{
         }
         return flight;
     }
+
+    @Override
+    public List<Integer> getArrivals(String iata, Date date) {
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        Query flightQuery = currentSession.createQuery("select F.flightId from Flight F where arrivalAirportIATACode=:arrival  and year(departureDate)=:year and month(departureDate)=:month and day(departureDate)=:day").
+                setParameter("arrival", iata).
+                setParameter("year", year).
+                setParameter("month", month).
+                setParameter("day", day);
+
+        List flightsIds = flightQuery.list();
+
+        return flightsIds;
+    }
+
+    @Override
+    public List<Integer> getDepartures(String iata, Date date) {
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        Query flightQuery = currentSession.createQuery("select F.flightId from Flight F where departureAirportIATACode=:departure  and year(departureDate)=:year and month(departureDate)=:month and day(departureDate)=:day").
+                setParameter("departure", iata).
+                setParameter("year", year).
+                setParameter("month", month).
+                setParameter("day", day);
+
+        List flightsIds = flightQuery.list();
+
+        return flightsIds;
+    }
 }

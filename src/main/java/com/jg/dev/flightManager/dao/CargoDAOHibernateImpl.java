@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 @Repository
 public class CargoDAOHibernateImpl implements CargoDAO{
 
@@ -95,5 +97,37 @@ public class CargoDAOHibernateImpl implements CargoDAO{
         }
 
         return kg.doubleValue() + WeightUnitConverter.lbToKg(lb.doubleValue());
+    }
+
+    @Override
+    public long getBaggageArriving(List<Integer> arrivals) {
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        long ans = 0;
+        Query query;
+
+        for (int tempArrivalId : arrivals){
+            query = currentSession.createQuery("select sum(pieces) from Cargo where flightId=:arrival and cargoType='baggage'").
+            setParameter("arrival" , tempArrivalId);
+            ans += (long) query.uniqueResult();
+        }
+
+        return ans;
+    }
+
+    @Override
+    public long getBaggageDeparting(List<Integer> departures) {
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        long ans = 0;
+        Query query;
+
+        for (int tempDepartureId : departures){
+            query = currentSession.createQuery("select sum(pieces) from Cargo where flightId=:departure and cargoType='baggage'").
+                    setParameter("departure" , tempDepartureId);
+            ans += (long) query.uniqueResult();
+        }
+
+        return ans;
     }
 }

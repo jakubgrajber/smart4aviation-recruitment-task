@@ -34,6 +34,7 @@ public class HomeController {
 
         model.addAttribute("flights", flights);
         model.addAttribute("flight", flight);
+        model.addAttribute("flight2", flight);
 
         return "home";
     }

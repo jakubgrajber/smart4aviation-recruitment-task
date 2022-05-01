@@ -86,5 +86,36 @@
         </tbody>
     </table>
 </form:form>
+
+<hr>
+<h3>Check airport information</h3>
+<form:form action="checkAirport" modelAttribute="flight" method="get">
+    <table>
+        <tbody>
+        <tr>
+            <td><label>IATA Airport Code</label></td>
+            <td>
+                <form:input path="arrivalAirportIATACode"/>
+                <form:errors path="arrivalAirportIATACode"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Date</label></td>
+            <td>
+                    <%--                <form:input path="departureDate" type="datetime-local" step="1" />--%>
+                    <%--                <form:errors path="departureDate"/>--%>
+                <form:input path="date" type="date" required = "required"/>
+                <form:errors path="date"/>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td><label></label></td>
+            <td><input type="submit" value="Check"></td>
+        </tr>
+        </tbody>
+    </table>
+</form:form>
 </body>
 </html>

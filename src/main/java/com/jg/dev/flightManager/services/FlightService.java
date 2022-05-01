@@ -13,4 +13,6 @@ public interface FlightService {
     public void saveFlight(Flight flight);
     public void deleteFlight(int flightId);
     public Flight getByFlightNumberAndDate(int flightNumber, Date departureDate);
+    public List<Integer> getArrivals(String iata, Date date);
+    public List<Integer> getDepartures(String iata, Date date);
 }

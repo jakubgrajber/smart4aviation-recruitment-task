@@ -13,4 +13,6 @@ public interface FlightDAO {
     public void save(Flight flight);
     public void update(Flight flight);
     public void delete(int flightId);
+    public List<Integer> getArrivals(String iata, Date date);
+    public List<Integer> getDepartures(String iata, Date date);
 }

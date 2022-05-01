@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class CargoServiceImpl implements CargoService{
 
@@ -46,5 +48,17 @@ public class CargoServiceImpl implements CargoService{
     @Transactional
     public double getBaggageWeight(int flightId) {
         return cargoDAO.getBaggageWeight(flightId);
+    }
+
+    @Override
+    @Transactional
+    public long getBaggageArriving(List<Integer> arrivals) {
+        return cargoDAO.getBaggageArriving(arrivals);
+    }
+
+    @Override
+    @Transactional
+    public long getBaggageDeparting(List<Integer> departures) {
+        return cargoDAO.getBaggageDeparting(departures);
     }
 }
