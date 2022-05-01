@@ -22,7 +22,7 @@ public class CheckWeightController {
     CargoService cargoService;
 
     @GetMapping("/checkWeight")
-    public String showResultsPage(@ModelAttribute("flight")Flight flight, Model model){
+    public String showResultsPage(@ModelAttribute("flight")Flight flight,Model model){
 
         flight.setDepartureDate(flight.getDate());
 
@@ -31,8 +31,6 @@ public class CheckWeightController {
         if (theFlight.getDepartureDate() == null){
             return "redirect:/";
         }
-
-
 
         double cargoWeight = cargoService.getCargoWeight(theFlight.getFlightId());
         double baggageWeight = cargoService.getBaggageWeight(theFlight.getFlightId());

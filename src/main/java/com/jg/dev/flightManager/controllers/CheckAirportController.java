@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import java.util.Date;
 import java.util.List;
 
+import static org.apache.taglibs.standard.functions.Functions.toUpperCase;
+
 @Controller
 public class CheckAirportController {
 
@@ -26,11 +28,15 @@ public class CheckAirportController {
 
         flight.setDepartureDate(flight.getDate());
 
-        String iata = flight.getArrivalAirportIATACode();
+        String iata = toUpperCase(flight.getArrivalAirportIATACode());
         Date date = flight.getDepartureDate();
 
         List<Integer> departures = flightService.getDepartures(iata, date);
         List<Integer> arrivals = flightService.getArrivals(iata, date);
+
+        if (departures.size() == 0 && arrivals.size() ==0){
+            return "redirect:/";
+        }
 
         long baggageArriving = cargoService.getBaggageArriving(arrivals);
         long baggageDeparting = cargoService.getBaggageDeparting(departures);
