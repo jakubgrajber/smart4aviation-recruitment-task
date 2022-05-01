@@ -15,6 +15,16 @@ public class FlightManagerApplication extends SpringBootServletInitializer {
 		return builder.sources(SpringApplicationBuilder.class);
 	}
 
+	@Bean
+	public ResourceBundleMessageSource messageSource(){
+
+		ResourceBundleMessageSource resources = new ResourceBundleMessageSource();
+
+		resources.setBasename("resources/messages");
+
+		return resources;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(FlightManagerApplication.class, args);
 	}
