@@ -3,18 +3,24 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!doctype html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
+    <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body>
-<h1>Work in progress!</h1>
-<hr>
-<a href="${pageContext.request.contextPath}/h2-console">DB console</a>
-<hr>
+<div class="mt-2 ms-3 me-3">
+    <img src="images/smart4aviation-logo.png" class="img-fluid mx-auto d-block" alt="Smart4Aviation logo">
+</div>
 
-<div>
-    <table border="1">
+<div class="container">
+    <h2>Flight Manager</h2>
+</div>
+
+<div class="container mt-5">
+    <table class="table table-hover table-striped">
         <thead>
             <th>Flight Number</th>
             <th>Departure IATA code</th>
@@ -22,7 +28,7 @@
             <th>Departure date</th>
             <th>Action</th>
         </thead>
-        <tbody>
+        <tbody class="">
             <c:forEach var="tempFlight" items="${flights}">
 
                 <!-- Link with flight id to detail page-->
@@ -46,6 +52,12 @@
                     <td>${tempFlight.arrivalAirportIATACode}</td>
                     <td><fmt:formatDate type = "both" value = "${tempFlight.departureDate}" /></td>
                     <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="${detailsLink}" class="btn btn-primary btn" tabindex="-1" role="button" aria-disabled="true">Details</a>
+                            <a href="#" class="btn btn-primary btn" tabindex="-1" role="button" aria-disabled="true">Details</a>
+                            <a href="#" class="btn btn-primary btn" tabindex="-1" role="button" aria-disabled="true">Details</a>
+                        </div>
+
                         <a href="${detailsLink}">Details</a> | <a href="${editLink}">Edit</a> |
                         <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
                     </td>
@@ -53,7 +65,9 @@
             </c:forEach>
         </tbody>
     </table>
-    <input type="button" value="Add Flight" onclick="window.location.href='addForm'; return false;" />
+    <div class="d-grid">
+        <input class="btn btn-dark" type="button" value="Add Flight" onclick="window.location.href='addForm'; return false;" />
+    </div>
 </div>
 <hr>
 <h3>Check weight of the flight</h3>
@@ -117,5 +131,6 @@
         </tbody>
     </table>
 </form:form>
+<script src="bootstrap.bundle.js"></script>
 </body>
 </html>

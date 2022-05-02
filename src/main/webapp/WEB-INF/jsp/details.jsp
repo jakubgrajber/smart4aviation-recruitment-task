@@ -2,9 +2,12 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!doctype html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
+    <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body>
 <h1>Work in progress!</h1>
@@ -90,5 +93,6 @@
 </div>
 <input type="button" value="Add Cargo" onclick="window.location.href='${addLink}'; return false;" />
 <a href="${pageContext.request.contextPath}/">Back</a>
+<script src="bootstrap.bundle.js"></script>
 </body>
 </html>
