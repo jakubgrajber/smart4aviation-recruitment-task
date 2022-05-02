@@ -11,52 +11,46 @@
     <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body>
-<h1>Work in progress!</h1>
-<hr>
-
-<div>
-    <form:form action="saveFlight" modelAttribute="flight" method="post">
-        <table>
-            <tbody>
-                <tr>
-                    <td><label>Flight Number:</label></td>
-                    <td>
-                        <form:input path="flightNumber" />
-                        <form:errors path="flightNumber"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Departure Airport IATA Code:</label></td>
-                    <td>
-                        <form:input path="departureAirportIATACode" />
-                        <form:errors path="departureAirportIATACode"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Arrival Airport IATA Code:</label></td>
-                    <td>
-                        <form:input path="arrivalAirportIATACode" />
-                        <form:errors path="arrivalAirportIATACode"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Departure Date: </label></td>
-
-                    <td>
-                        <form:input path="departureDate" type="datetime-local" step="1" />
-                        <form:errors path="departureDate"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label></label></td>
-                    <td><input type="submit" value="Save"></td>
-                </tr>
-            </tbody>
-        </table>
-    </form:form>
+<div class="mt-2 ms-3 me-3">
+    <img src="images/smart4aviation-logo.png" class="img-fluid mx-auto d-block" alt="Smart4Aviation logo">
 </div>
 
-<a href="${pageContext.request.contextPath}/">Back to list</a>
+<div class="container mb-5">
+    <h2>Flight Manager</h2>
+</div>
+
+<div class="container">
+    <h5 class="mb-4">Add new flight</h5>
+    <form:form action="saveFlight" modelAttribute="flight" method="post">
+        <div class="mb-4">
+            <label for="flightNumber" class="form-label">Flight Number</label>
+            <form:input path="flightNumber" class="form-control" id="flightNumber"/>
+            <form:errors path="flightNumber"/>
+        </div>
+        <div class="mb-4">
+            <label for="departureIata" class="form-label">Departure Airport IATA Code</label>
+            <form:input path="departureAirportIATACode" class="form-control" id="departureIata"/>
+            <form:errors path="departureAirportIATACode"/>
+        </div>
+        <div class="mb-4">
+            <label for="arrivalIata" class="form-label">Arrival Airport IATA Code</label>
+            <form:input path="arrivalAirportIATACode" class="form-control" id="arrivalIata"/>
+            <form:errors path="arrivalAirportIATACode"/>
+        </div>
+        <div class="mb-4">
+            <label for="date" class="form-label">Departure Date</label>
+            <form:input path="departureDate" type="datetime-local" step="1" class="form-control" id="date"/>
+            <form:errors path="departureDate"/>
+        </div>
+        <div class="d-grid mt-xl-1 mb-4">
+            <input class="btn btn-outline-dark" type="submit" value="Save"/>
+        </div>
+    </form:form>
+</div>
+<div class="container">
+    <a href="${pageContext.request.contextPath}/">Back to list</a>
+</div>
+
 
 <script src="bootstrap.bundle.js"></script>
 </body>
