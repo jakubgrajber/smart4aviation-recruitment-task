@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static org.apache.taglibs.standard.functions.Functions.toUpperCase;
+
 @Controller
 public class EditFlightController {
 
@@ -30,8 +32,13 @@ public class EditFlightController {
     public String updateFlight(@Valid @ModelAttribute("flight") Flight flight, BindingResult bindingResult){
 
         if (bindingResult.hasFieldErrors()){
+
             return "edit-flight";
         } else {
+
+            flight.setArrivalAirportIATACode(toUpperCase(flight.getArrivalAirportIATACode()));
+            flight.setDepartureAirportIATACode(toUpperCase(flight.getDepartureAirportIATACode()));
+
             flightService.updateFlight(flight);
 
             return "redirect:/";

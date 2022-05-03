@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import static org.apache.taglibs.standard.functions.Functions.toUpperCase;
 
 @Controller
 public class AddFormController {
@@ -35,6 +36,9 @@ public class AddFormController {
         if (bindingResult.hasErrors()){
             return "flight-form";
         } else {
+            flight.setArrivalAirportIATACode(toUpperCase(flight.getArrivalAirportIATACode()));
+            flight.setDepartureAirportIATACode(toUpperCase(flight.getDepartureAirportIATACode()));
+
             flightService.saveFlight(flight);
 
             return "redirect:/addCargo?flightId=" + flight.getFlightId();
