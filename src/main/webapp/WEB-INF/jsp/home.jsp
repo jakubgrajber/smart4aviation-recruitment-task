@@ -83,7 +83,10 @@
                         <form:input class="form-control" id="date" path="date" type="date" required = "required"/>
                         <form:errors path="date"/>
                     </div>
-                    <input class="btn btn-outline-dark" type="submit" value="Check">
+                    <div class="d-grid mt-xl-1 mb-4">
+                        <input class="btn btn-outline-dark" type="submit" value="Check">
+
+                    </div>
                 </form:form>
             </div>
 
@@ -101,7 +104,9 @@
                         <form:input class="form-control" id="date" path="date" type="date" required = "required"/>
                         <form:errors path="date"/>
                     </div>
-                    <input class="btn btn-outline-dark" type="submit" value="Check">
+                        <div class="d-grid mt-xl-1 mb-4">
+                            <input class="btn btn-outline-dark" type="submit" value="Check">
+                        </div>
                 </form:form>
             </div>
     </div>
