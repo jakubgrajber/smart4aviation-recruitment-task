@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body>
-<h1>Work in progress!</h1>
-<hr>
-<a href="${pageContext.request.contextPath}/h2-console">DB console</a>
-<hr>
-
 <!-- Link with flight id to edit page-->
 <c:url var="editLink" value="/editFlight">
     <c:param name="flightId" value="${flight.flightId}"/>
@@ -30,15 +25,22 @@
     <c:param name="flightId" value="${flight.flightId}"/>
 </c:url>
 
+<div class="mt-2 ms-3 me-3">
+    <img src="images/smart4aviation-logo.png" class="img-fluid mx-auto d-block" alt="Smart4Aviation logo">
+</div>
 
-<div>
-    <table border="1">
+<div class="container">
+    <h2>Flight Manager</h2>
+</div>
+
+<div class="container mt-5">
+    <table class="table table-hover table-striped">
         <thead>
-            <th>Flight Number</th>
-            <th>Departure IATA code</th>
-            <th>Arrival IATA code</th>
-            <th>Departure date</th>
-            <th>Action</th>
+            <th class="col-sm-1">Flight Number</th>
+            <th class="col-sm-2">Departure IATA code</th>
+            <th class="col-sm-2">Arrival IATA code</th>
+            <th class="col-sm-4">Departure date</th>
+            <th class="col-sm-3">Action</th>
         </thead>
         <tbody>
                 <tr>
@@ -47,21 +49,24 @@
                     <td>${flight.arrivalAirportIATACode}</td>
                     <td><fmt:formatDate type = "both" value = "${flight.departureDate}" /></td>
                     <td>
-                        <a href="${editLink}">Edit</a> | <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="${editLink}" class="btn btn-outline-dark btn" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+                            <a href="${deleteLink}" class="btn btn-outline-danger btn" tabindex="-1" role="button" aria-disabled="true" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
+                        </div>
                     </td>
                 </tr>
         </tbody>
     </table>
 </div>
-<div>
-    <table border="1">
+<div class="container mt-5">
+    <table class="table table-hover table-striped">
         <thead>
-        <th>Id</th>
-        <th>Cargo Type</th>
-        <th>Weight</th>
-        <th>Weight Unit</th>
-        <th>Pieces</th>
-        <th>Action</th>
+        <th class="col-sm-1">Id</th>
+        <th class="col-sm-2">Cargo Type</th>
+        <th class="col-sm-2">Weight</th>
+        <th class="col-sm-2">Weight Unit</th>
+        <th class="col-sm-2">Pieces</th>
+        <th class="col-sm-3">Action</th>
         </thead>
         <tbody>
         <c:forEach var="tempCargo" items="${flight.cargoEntity}">
@@ -84,15 +89,24 @@
                 <td>${tempCargo.weightUnit}</td>
                 <td>${tempCargo.pieces}</td>
                 <td>
-                    <a href="${editLink}">Edit</a> | <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this flight?'))) return false">Delete</a>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="${editLink}" class="btn btn-outline-dark btn" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+                        <a href="${deleteLink}" class="btn btn-outline-danger btn" tabindex="-1" role="button" aria-disabled="true" onclick="if (!(confirm('Are you sure you want to delete this cargo?'))) return false">Delete</a>
+                    </div>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div class="d-grid mt-xl-1 mb-4">
+        <input class="btn btn-outline-dark " type="button" value="Add Cargo" onclick="window.location.href='${addLink}'; return false;" />
+    </div>
+
+    <div class="d-grid mt-xl-1 mb-4">
+        <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/">Back</a>
+    </div>
 </div>
-<input type="button" value="Add Cargo" onclick="window.location.href='${addLink}'; return false;" />
-<a href="${pageContext.request.contextPath}/">Back</a>
+
 <script src="bootstrap.bundle.js"></script>
 </body>
 </html>
