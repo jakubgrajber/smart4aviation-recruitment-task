@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +39,16 @@ public class CheckAirportController {
             return "redirect:/";
         }
 
+        List<Flight> departureFlights = new ArrayList<>();
+        List<Flight> arrivalFlights = new ArrayList<>();
+
+        for (Integer tempId : departures){
+            departureFlights.add(flightService.getFlight(tempId));
+        }
+        for (Integer tempId : arrivals){
+            arrivalFlights.add(flightService.getFlight(tempId));
+        }
+
         long baggageArriving = cargoService.getBaggageArriving(arrivals);
         long baggageDeparting = cargoService.getBaggageDeparting(departures);
 
@@ -46,7 +57,9 @@ public class CheckAirportController {
                 .addAttribute("baggageArriving", baggageArriving)
                 .addAttribute("baggageDeparting", baggageDeparting)
                 .addAttribute("iata", iata)
-                .addAttribute("date", date);
+                .addAttribute("date", date)
+                .addAttribute("departureFlights", departureFlights)
+                .addAttribute("arrivalFlights", arrivalFlights);
 
         return "airport-info";
 
