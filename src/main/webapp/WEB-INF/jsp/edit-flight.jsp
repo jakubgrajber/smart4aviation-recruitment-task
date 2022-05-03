@@ -44,13 +44,12 @@
             <form:errors path="departureDate"/>
         </div>
         <div class="d-grid mt-xl-1 mb-4">
-            <input class="btn btn-outline-dark" type="submit" value="Save"/>
+            <input class="btn btn-outline-dark mb-4" type="submit" value="Save"/>
+            <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/">Back to list</a>
         </div>
     </form:form>
 </div>
-<div class="container">
-    <a href="${pageContext.request.contextPath}/">Back to list</a>
-</div>
+
 
 
 <script src="bootstrap.bundle.js"></script>
