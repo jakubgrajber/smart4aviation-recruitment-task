@@ -11,60 +11,60 @@
     <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body>
-<h1>Work in progress!</h1>
-<hr>
-
-<div>
-    <form:form action="saveCargo" modelAttribute="cargo" method="post">
-        <p>Flight Id: ${cargo.flightId}</p>
-        <form:hidden path="flightId"/>
-        <table>
-            <tbody>
-                <tr>
-                    <td><label>Cargo Type:</label></td>
-                    <td>
-                        <form:radiobutton path="cargoType" value="cargo" id="cargo"/>
-                        <label for="cargo">Cargo</label>
-                        <form:radiobutton path="cargoType" value="baggage" id="baggage"/>
-                        <label for="baggage">Baggage</label>
-                        <form:errors path="cargoType"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Weight:</label></td>
-                    <td>
-                        <form:input path="weight" />
-                        <form:errors path="weight"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Weight Unit:</label></td>
-                    <td>
-                            <form:radiobutton path="weightUnit" value="kg" id="kg"/>
-                        <label for="kg">kg</label>
-                            <form:radiobutton path="weightUnit" value="lb" id="lb"/>
-                        <label for="lb">lb</label>
-                                    <form:errors path="weightUnit"/>
-                    <td>
-                </tr>
-                <tr>
-                    <td><label>Pieces:</label></td>
-                    <td>
-                        <form:input path="pieces" />
-                        <form:errors path="pieces"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label></label></td>
-                    <td><input type="submit" value="Save"></td>
-                </tr>
-            </tbody>
-        </table>
-    </form:form>
+<div class="mt-2 ms-3 me-3">
+    <img src="images/smart4aviation-logo.png" class="img-fluid mx-auto d-block" alt="Smart4Aviation logo">
 </div>
 
-<a href="${pageContext.request.contextPath}/details?flightId=${cargo.flightId}">Back to Flight details</a>
+<div class="container mb-5">
+    <h2>Flight Manager</h2>
+</div>
 
+<div class="container">
+    <h5 class="mb-4">Add new cargo</h5>
+    <form:form action="saveCargo" modelAttribute="cargo" method="post">
+        <form:hidden path="flightId"/>
+
+        <div class="mb-4">
+            <label for="cargoType" class="form-label">Cargo Type </label>
+            <div class="d-grid mt-xl-1 mb-4">
+                <div id="cargoType" class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <form:radiobutton path="cargoType" value="cargo" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" />
+                    <label class="btn btn-outline-dark" for="btnradio1">Cargo</label>
+
+                    <form:radiobutton path="cargoType" value="baggage" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"/>
+                    <label class="btn btn-outline-dark" for="btnradio3">Baggage</label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="weight" class="form-label">Weight</label>
+            <form:input id="weight" path="weight" class="form-control"/>
+            <form:errors path="weight"/>
+        </div>
+        <div class="mb-4">
+            <label for="weightUnit" class="form-label">Weight Unit</label>
+            <div class="d-grid mt-xl-1 mb-4">
+                <div id="weightUnit" class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <form:radiobutton path="weightUnit" value="kg" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
+                    <label class="btn btn-outline-dark" for="btnradio2">KG</label>
+
+                    <form:radiobutton path="weightUnit" value="lb" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off"/>
+                    <label class="btn btn-outline-dark" for="btnradio4">LB</label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="pieces" class="form-label">Pieces</label>
+            <form:input path="pieces"  class="form-control"/>
+            <form:errors path="pieces"/>
+        </div>
+        <div class="d-grid mt-xl-1 mb-4">
+            <input class="btn btn-outline-dark mb-4" type="submit" value="Save">
+            <a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/details?flightId=${cargo.flightId}">Back to Flight details</a>
+
+        </div>
+    </form:form>
+</div>
 <script src="bootstrap.bundle.js"></script>
 </body>
 </html>
