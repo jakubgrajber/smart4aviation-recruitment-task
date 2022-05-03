@@ -109,7 +109,10 @@ public class CargoDAOHibernateImpl implements CargoDAO{
         for (int tempArrivalId : arrivals){
             query = currentSession.createQuery("select sum(pieces) from Cargo where flightId=:arrival and cargoType='baggage'").
             setParameter("arrival" , tempArrivalId);
-            ans += (long) query.uniqueResult();
+            try {
+                ans += (long) query.uniqueResult();
+
+            } catch (Exception exception){}
         }
 
         return ans;
@@ -125,7 +128,9 @@ public class CargoDAOHibernateImpl implements CargoDAO{
         for (int tempDepartureId : departures){
             query = currentSession.createQuery("select sum(pieces) from Cargo where flightId=:departure and cargoType='baggage'").
                     setParameter("departure" , tempDepartureId);
-            ans += (long) query.uniqueResult();
+            try {
+                ans += (long) query.uniqueResult();
+            } catch (Exception exception){}
         }
 
         return ans;
